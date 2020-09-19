@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{定理叙述}{3}{0}{1}
+\beamer@sectionintoc {2}{定理背景}{5}{0}{2}
+\beamer@sectionintoc {3}{证明思路}{9}{0}{3}
+\beamer@sectionintoc {4}{证明过程}{16}{0}{4}

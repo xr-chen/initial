@@ -1,0 +1,173 @@
+\documentclass[10pt]{beamer}
+\usepackage[noindent]{ctexcap}
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{amsthm}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\newtheorem{theo}{定理}
+
+\title{P91定理}
+\subtitle{}
+\date{\today}
+\author{07117117陈兴嵘}
+\institute{}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{目录}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{定理叙述}
+
+\begin{frame}[fragile]{定理叙述}
+\begin{theo}
+  在$C[0,1]$中处处不可微的函数集合$E$是非空的，更确切地，$E$的余集是第一纲集\cite{Knuth92}
+\end{theo}
+\end{frame}
+\section{定理背景}
+\begin{frame}[fragile]{定理背景}
+Weierstrass构造出了一个处处连续却处处不可微的函数
+\begin{equation}\label{}
+  W(x)=\sum_{n=0}^{\infty}a^n\cos(b^n\pi x)
+\end{equation}
+其中$0<a<1$，$b$为正奇数，且：
+\begin{equation}\label{}
+  ab>1+\frac{3}{2}\pi
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{连续性}
+\begin{proof}
+  函数列$a^n\cos(b^n\pi x)$满足：
+  \begin{equation}\label{}
+    |a^n\cos(b^n\pi x)|\leq a^n
+  \end{equation}
+  且根据a的定义，正项级数$\sum_{n=0}^{+\infty}a^n$是收敛的，由Weierstrass判别法知，这个函数项级数一致收敛，且每一个函数项都是$\mathbb{R}$上的连续函数，则$W(x)$在$\mathbb{R}$上连续
+\end{proof}
+\end{frame}
+\begin{frame}[fragile]{不可导性}
+思路：
+\begin{proof}
+  对于任意点$x\in\mathbb{R}$都能找出趋于$x$的两个不同数列$\{x_n\}$和$\{x_n^{'}\}$使得:
+  \begin{equation}\label{}
+    \varliminf_{n\to\infty}\frac{W(x_n)-W(x)}{x_n-x}>\varlimsup_{n\to\infty}\frac{W(x^{'}_n)-W(x)}{x^{'}_n-x}
+  \end{equation}
+  与函数可导的定义矛盾。
+\end{proof}
+\end{frame}
+
+
+
+\section{证明思路}
+
+\begin{frame}{证明思路}
+	\begin{itemize}[<+- | alert@+>]
+%    \item \alert<4>{This is\only<4>{ really} important}
+    \item 设全空间$\mathcal{X}$为$C[0,1]$
+    \item 利用可导的性质来定义集合$A_n$找到和处处不可微函数集$E$的关系
+    \item 证明$A_n$是闭集
+    \item 证明$A_n$没有内点得到每个$A_n$是疏集
+    \item 由Baire定理推出$\mathcal{X}$是第二纲集，从而$E$也是第二纲集
+    \item
+  \end{itemize}
+\end{frame}
+
+\section{证明过程}
+
+\begin{frame}[fragile]{Step1}
+\textbf{证明}\\
+取$\mathcal{X}=C[0,1]$，设$A_n$表示$\mathcal{X}$中这样一些元素$f$之集。对$f,\exists s\in[0,1]$，使对适合的$0\leq s+h\leq 1$与$|h|\leq 1/n$的任何$h$下成立
+\begin{equation}\label{}
+  |\frac{f(s+h)-f(s)}{h}|\leq n
+\end{equation}
+若$f$在某个点$s$处可微，则必有正整数$n$，使得$f\in A_n$
+\begin{equation}\label{236}
+  \mathcal{X}\setminus E\subset \bigcup_{n=1}^{\infty}A_n
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Step2}
+\onslide<1->{证明$A_n$是闭的，若$f\in\mathcal{X}\setminus A_n$，则$\forall s\in[0,1],\exists h_s,$（任意给定的s）使得
+\begin{equation}\label{qiqi}
+  |h_s|\leq \frac{1}{n}\quad\mbox{且}\quad|f(s+h_s)-f(s)|>n|h_s|
+\end{equation}
+由$f$的连续性，$\exists\epsilon_s>0$，以及$s$的某个适当的邻域$J_s$，对$\forall\sigma\in J_s$有
+\begin{equation}\label{shuo}
+  |f(\sigma+h_s)-f(\sigma)|>n|h_s|+2\epsilon_s
+\end{equation}}
+\onslide<2->{
+因为
+\begin{equation}\label{}
+\begin{split}
+    &  |f(\sigma+h_s)-f(\sigma)|\\
+     =& |f(\sigma+h_s)-f(s+h_s)+f(s+h_s)-f(s)+f(s)-f(\sigma)|
+\end{split}
+\end{equation}
+由\eqref{qiqi}知，当$f(s+h_s)-f(s)>0$时，找到邻域$J_s$满足
+\begin{equation}
+f(\sigma+h_s)-f(s+h_s)+f(s)-f(\sigma)>2\epsilon_s>0
+\end{equation}
+从而对$\epsilon_s$满足\eqref{shuo}式，当$f(s+h_s)-f(s)<0$时（\eqref{qiqi}式说明没有等于零的情形），同理可以找到合适的邻域$J_s$对$\epsilon_s$满足\eqref{shuo}}
+\end{frame}
+
+\begin{frame}[fragile]{Step2}
+\onslide<1->{对于$\forall s\in[0,1]$都满足\eqref{shuo}，那么$J_{s_i}$一定可以覆盖区间$[0,1]$根据有限覆盖定理，可设$J_{s_1}...J_{s_m}$覆盖了$[0,1]$，设
+\begin{equation}\label{}
+  \epsilon=\min\{\epsilon_{s_1},\epsilon_{s_2},...,\epsilon_{s_m}\}
+\end{equation}}\onslide<2->{
+若$g\in\mathcal{X}$适合$||g-f||<\epsilon$，则由\eqref{shuo}式，对$\forall\sigma\in J_{s_k}(k=1,...m)$有
+\begin{equation}\label{}
+\begin{split}
+&|g(\sigma+h_{s_k})-g(\sigma)|\\
+=&|g(\sigma+h_{s_k})-f(\sigma+h_{s_k})+f(\sigma+h_{s_k})-f(\sigma)+f(\sigma)-g(\sigma)|\\
+\geq&\bigg||f(\sigma+h_{s_k})-f(\sigma)|-|f(\sigma)-g(\sigma)|-|g(\sigma+h_{s_k})-f(\sigma+h_{s_k})|\bigg|\\
+\geq&\bigg||f(\sigma+h_{s_k})-f(\sigma)|-2||g-f||\bigg|\\
+\geq&\bigg||f(\sigma+h_{s_k})-f(\sigma)|-2\epsilon\bigg|>n|h_{s_k}|
+\end{split}
+\end{equation}}\onslide<3->{
+根据\eqref{qiqi}的定义$g\in\mathcal{X}\setminus A_n$,从而$f$是$\mathcal{X}\setminus A_n$的内点,由$f$的任意性可得，$\mathcal{X}\setminus A_n$是开集，从而$A_n$是闭集}
+\end{frame}
+
+\begin{frame}[fragile]{Step3}
+\onslide<1->{$A_n$是闭集，因此$A_n=\overline{A_n}$，下面证明$A_n$没有内点，$\forall f\in A_n$，$\forall\epsilon>0$，由Weierstrass逼近定理，存在多项式$p$，使得
+\begin{equation}\label{}
+  ||f-p||<\frac{\epsilon}{2}
+\end{equation}}\onslide<2->{
+(Weierstrass逼近定理：闭区间上的连续函数可用多项式级数一致逼近)}\onslide<3->{
+由闭区间连续函数的性质，可以得到$p$的导数在$[0,1]$上有界，因此根据中值定理$\exists M>0$使得$\forall s\in[0,1]$及$|h|<1/n$有
+\begin{equation}\label{}
+  |p(s+h)-p(s)|\leq M|h|
+\end{equation}}\onslide<4->{
+设$g(s)\in C[0,1]$是一个分段线性函数，满足$||g||<\epsilon/2$，并且各段的斜率的绝对值大于$M+n$，从而由\eqref{qiqi}可得
+\begin{equation}\label{}
+  p+g\in B(f,\epsilon),\quad\mbox{且}\quad p+g\notin A_n
+\end{equation}
+由$\epsilon$的任意性，可得$A_n$没有内点，是疏集，从而$\cup_{n=1}^{\infty}A_n$是第一纲集，$\mathcal{X}$完备，由Baire定理，$\mathcal{X}$是第二纲集，根据\eqref{236}得，$E$也是第二纲集}
+\end{frame}
+
+\begin{frame}[standout]
+\Huge{感谢聆听}
+\end{frame}
+
+\appendix
+
+\begin{frame}[allowframebreaks]{References}
+  \bibliographystyle{plain}
+  \bibliography{demo}
+
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,15 @@
+\frametitle{Step3}
+\onslide<1->{$A_n$是闭集，因此$A_n=\overline{A_n}$，下面证明$A_n$没有内点，$\forall f\in A_n$，$\forall\epsilon>0$，由Weierstrass逼近定理，存在多项式$p$，使得
+\begin{equation}\label{}
+  ||f-p||<\frac{\epsilon}{2}
+\end{equation}}\onslide<2->{
+(Weierstrass逼近定理：闭区间上的连续函数可用多项式级数一致逼近)}\onslide<3->{
+由闭区间连续函数的性质，可以得到$p$的导数在$[0,1]$上有界，因此根据中值定理$\exists M>0$使得$\forall s\in[0,1]$及$|h|<1/n$有
+\begin{equation}\label{}
+  |p(s+h)-p(s)|\leq M|h|
+\end{equation}}\onslide<4->{
+设$g(s)\in C[0,1]$是一个分段线性函数，满足$||g||<\epsilon/2$，并且各段的斜率的绝对值大于$M+n$，从而由\eqref{qiqi}可得
+\begin{equation}\label{}
+  p+g\in B(f,\epsilon),\quad\mbox{且}\quad p+g\notin A_n
+\end{equation}
+由$\epsilon$的任意性，可得$A_n$没有内点，是疏集，从而$\cup_{n=1}^{\infty}A_n$是第一纲集，$\mathcal{X}$完备，由Baire定理，$\mathcal{X}$是第二纲集，根据\eqref{236}得，$E$也是第二纲集}
