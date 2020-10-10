@@ -56,3 +56,11 @@ stringstyle=\color{codepurple},
 
 \renewcommand{\headrulewidth}{0pt} %改为0pt即可去掉页眉下面的横线
 \renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\limn}{\lim_{n\to\infty}}
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\test}[2]{H_0:{#1}\quad \mathrm{vs.}\quad H_1:{#2}}
+\newcommand{\limp}[1]{\lim_{n\to{#1}\infty}}
+\newcommand{\testin}[2]{H_0:{#1}\mbox{ }\mathrm{vs.}\mbox{ }H_1:{#2}}
