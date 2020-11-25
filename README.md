@@ -1,3 +1,3 @@
 # First Repository
 
-The first repository, try to use Github backup some code file in my computer.
+The first repository, use Github backup some code files in my computer.
